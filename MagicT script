@@ -1,0 +1,17 @@
+local plr = game.Players.LocalPlayer
+
+local backup = game.Players:FindFirstChild("Flight",true):Clone()
+local backup2 = game.Players:FindFirstChild("Elder Wand",true):Clone()
+backup.Parent,backup2.Parent = game.ReplicatedStorage,game.ReplicatedStorage
+
+function give()
+   local c = game.ReplicatedStorage.Flight:Clone()
+   local c2 = game.ReplicatedStorage["Elder Wand"]:Clone()
+   c.Parent,c2.Parent = plr.Backpack,plr.Backpack
+end
+
+give()
+
+plr.CharacterAdded:Connect(function()
+   give()
+end)
